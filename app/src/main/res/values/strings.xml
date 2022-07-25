@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Hearts</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="play">Play</string>
+    <string name="back">Back</string>
+    <string name="undo">Undo</string>
+    <string name="calculate_score">Calculate Score</string>
+    <string name="play_again">Play Again</string>
+
+    <string name="enter_names">Enter player names</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="player1"> Player 1:</string>
+    <string name="player2"> Player 2:</string>
+    <string name="player3"> Player 3:</string>
+    <string name="player4"> Player 4:</string>
+    <string name="score_not_20">Total score for this round does not equal 20\nPlease change the score</string>
+    <string name="score_above_40">went above 40 points\nDo you want to go back to 0?</string>
+    <string name="score_below_0">went below 0 points and won the game!</string>
+    <string name="going_to_40">Going to 40</string>
+    <string name="going_to_0">Going to 0</string>
+    <string name="previous">Going to 0</string>
+    <string name="next">Going to 0</string>
+    <string name="clear_names">Clear Names</string>
+    <string name="_0">0</string>
+    <string name="textview">TextView</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="name">name</string>
+</resources>
