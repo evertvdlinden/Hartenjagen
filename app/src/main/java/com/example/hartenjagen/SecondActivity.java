@@ -16,13 +16,13 @@ public class SecondActivity extends AppCompatActivity {
     public static final String NAMES = "com.example.example.NAME";
     public static final String SCORES = "com.example.example.SCORE";
 
-    private TextView[] playerNames = new TextView[4];
-    private EditText[] tempScores = new EditText[4];
-    private Integer[]  tempScoresInt = new Integer[4];
-    private TextView[] totalScores = new TextView[4];
-    private Integer[] totalScoresInt = new Integer[4];
-    private Button[] plusButtons = new Button[4];
-    private Button[] minusButtons = new Button[4];
+    private TextView[] playerNames = new TextView[5];
+    private EditText[] tempScores = new EditText[5];
+    private Integer[]  tempScoresInt = new Integer[5];
+    private TextView[] totalScores = new TextView[5];
+    private Integer[] totalScoresInt = new Integer[5];
+    private Button[] plusButtons = new Button[5];
+    private Button[] minusButtons = new Button[5];
 
     private Button previousButton;
     private Button calculateButton;
@@ -39,7 +39,8 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         Intent intent = getIntent();
-        final String[] names = intent.getStringArrayExtra(MainActivity.NAMES);
+        //final String[] names = intent.getStringArrayExtra(MainActivity.NAMES);
+        final String[] names = intent.getStringArrayListExtra(NAMES).toArray(new String[0]);
 
         goBackButton = findViewById(R.id.goBackButton);
         goBackButton.setVisibility(View.INVISIBLE);
@@ -50,28 +51,46 @@ public class SecondActivity extends AppCompatActivity {
         playerNames[1] = findViewById(R.id.namePlayer2);
         playerNames[2] = findViewById(R.id.namePlayer3);
         playerNames[3] = findViewById(R.id.namePlayer4);
+        playerNames[4] = findViewById(R.id.namePlayer5);
 
         tempScores[0] = findViewById(R.id.scoreToAddPlayer1);
         tempScores[1] = findViewById(R.id.scoreToAddPlayer2);
         tempScores[2] = findViewById(R.id.scoreToAddPlayer3);
         tempScores[3] = findViewById(R.id.scoreToAddPlayer4);
+        tempScores[4] = findViewById(R.id.scoreToAddPlayer5);
 
         totalScores[0] = findViewById(R.id.totalScorePlayer1);
         totalScores[1] = findViewById(R.id.totalScorePlayer2);
         totalScores[2] = findViewById(R.id.totalScorePlayer3);
         totalScores[3] = findViewById(R.id.totalScorePlayer4);
+        totalScores[4] = findViewById(R.id.totalScorePlayer5);
 
         plusButtons[0] = findViewById(R.id.plusButton1);
         plusButtons[1] = findViewById(R.id.plusButton2);
         plusButtons[2] = findViewById(R.id.plusButton3);
         plusButtons[3] = findViewById(R.id.plusButton4);
+        plusButtons[4] = findViewById(R.id.plusButton5);
 
         minusButtons[0] = findViewById(R.id.minusButton1);
         minusButtons[1] = findViewById(R.id.minusButton2);
         minusButtons[2] = findViewById(R.id.minusButton3);
         minusButtons[3] = findViewById(R.id.minusButton4);
+        minusButtons[4] = findViewById(R.id.minusButton5);
 
-        for (int i = 0; i < playerNames.length; i++) {
+        for (int i = 0; i < 5; i++) {
+            playerNames[i].setVisibility(View.INVISIBLE);
+            tempScores[i].setVisibility(View.INVISIBLE);
+            totalScores[i].setVisibility(View.INVISIBLE);
+            plusButtons[i].setVisibility(View.INVISIBLE);
+            minusButtons[i].setVisibility(View.INVISIBLE);
+        }
+
+        for (int i = 0; i < names.length; i++) {
+            playerNames[i].setVisibility(View.VISIBLE);
+            tempScores[i].setVisibility(View.VISIBLE);
+            totalScores[i].setVisibility(View.VISIBLE);
+            plusButtons[i].setVisibility(View.VISIBLE);
+            minusButtons[i].setVisibility(View.VISIBLE);
             playerNames[i].setText(names[i] + ":");
             tempScores[i].setText("0");
             totalScores[i].setText("0");
@@ -97,9 +116,9 @@ public class SecondActivity extends AppCompatActivity {
                 try {
 
                     //Calculates previous scores based on the tempscores of last round
-                    for (int i = 0; i < tempScoresInt.length; i++) {
+                    for (int i = 0; i < names.length; i++) {
                         if (tempScoresInt[i] == 20) {
-                            for (int j = 0; j < tempScoresInt.length; j++) {
+                            for (int j = 0; j < names.length; j++) {
                                 if (j != i) {
                                     totalScoresInt[j] = totalScoresInt[j] - 20;
                                     convertIntToTextView(totalScoresInt[j], totalScores[j]);
@@ -131,7 +150,7 @@ public class SecondActivity extends AppCompatActivity {
 
                     //Checks if temp scores add to 20, if not give a warning, if yes continue
                     int count = 0;
-                    for (int i = 0; i < tempScoresInt.length; i++) {
+                    for (int i = 0; i < names.length; i++) {
                         count = count + convertEditTextToInt(tempScores[i]);
                     }
                     if (count != 20) {
@@ -141,15 +160,15 @@ public class SecondActivity extends AppCompatActivity {
                     warningText.setText("");
 
                     //Converts temp scores to integers
-                    for (int i = 0; i < tempScores.length; i++) {
+                    for (int i = 0; i < names.length; i++) {
                         tempScoresInt[i] = convertEditTextToInt(tempScores[i]);
                     }
 
                     //Calculate new scores and updates them
-                    for (int i = 0; i < totalScoresInt.length; i++) {
+                    for (int i = 0; i < names.length; i++) {
                         if (tempScoresInt[i] == 20) {
                             totalScoresInt[i] = convertTextViewToInt(totalScores[i]);
-                            for (int j = 0; j < tempScoresInt.length; j++) {
+                            for (int j = 0; j < names.length; j++) {
                                 if (j != i) {
                                     totalScoresInt[j] = convertTextViewToInt(totalScores[j]) + 20;
                                 }
@@ -165,7 +184,7 @@ public class SecondActivity extends AppCompatActivity {
                     undoButton.setVisibility(view.VISIBLE);
 
                     String above40String = "";
-                    for (int i = 0; i < 4; i++) {
+                    for (int i = 0; i < names.length; i++) {
                         if (totalScoresInt[i] > 39) {
                             if (above40String.length() > 0) {
                                 above40String = above40String.concat("and "+ names[i] + " ");
@@ -184,7 +203,7 @@ public class SecondActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(getApplicationContext(), ThirdActivity.class);
-                                String[] scores = new String[4];
+                                String[] scores = new String[names.length];
                                 for (int i = 0; i < scores.length; i++) {
                                     scores[i] = totalScores[i].getText().toString();
                                 }
@@ -203,15 +222,13 @@ public class SecondActivity extends AppCompatActivity {
                                 startActivity(intent);
                             }
                         });
-
-
                     }
                 } catch (NumberFormatException e) {}
             }
         });
 
         //Functionality for plus and minus buttons
-        for (int i = 0; i < plusButtons.length; i++) {
+        for (int i = 0; i < names.length; i++) {
             int finalI = i;
             plusButtons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
