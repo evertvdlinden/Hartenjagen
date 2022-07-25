@@ -19,6 +19,8 @@ public class ThirdActivity extends AppCompatActivity {
     private Integer[]  tempScoresInt = new Integer[4];
     private TextView[] totalScores = new TextView[4];
     private Integer[] totalScoresInt = new Integer[4];
+    private Button[] plusButtons = new Button[4];
+    private Button[] minusButtons = new Button[4];
 
     private Button backButton;
     private Button calculateButton;
@@ -54,6 +56,16 @@ public class ThirdActivity extends AppCompatActivity {
         totalScores[1] = findViewById(R.id.totalScorePlayer2);
         totalScores[2] = findViewById(R.id.totalScorePlayer3);
         totalScores[3] = findViewById(R.id.totalScorePlayer4);
+
+        plusButtons[0] = findViewById(R.id.plusButton5);
+        plusButtons[1] = findViewById(R.id.plusButton6);
+        plusButtons[2] = findViewById(R.id.plusButton7);
+        plusButtons[3] = findViewById(R.id.plusButton8);
+
+        minusButtons[0] = findViewById(R.id.minusButton5);
+        minusButtons[1] = findViewById(R.id.minusButton6);
+        minusButtons[2] = findViewById(R.id.minusButton7);
+        minusButtons[3] = findViewById(R.id.minusButton8);
 
         for (int i = 0; i < playerNames.length; i++) {
             playerNames[i].setText(names[i] + ":");
@@ -157,6 +169,27 @@ public class ThirdActivity extends AppCompatActivity {
             }
         });
 
+        //Functionality for plus and minus buttons
+        for (int i = 0; i < plusButtons.length; i++) {
+            int finalI = i;
+            plusButtons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        convertIntToEditText(convertEditTextToInt(tempScores[finalI]) + 1, tempScores[finalI]);
+                    } catch (NumberFormatException e) {}
+                }
+            });
+
+            minusButtons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        convertIntToEditText(convertEditTextToInt(tempScores[finalI]) - 1, tempScores[finalI]);
+                    } catch (NumberFormatException e) {}
+                }
+            });
+        }
     }
 
     //Converts textview to integer

@@ -140,6 +140,30 @@
                 app:fontFamily="@font/amaranth"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
+            <Button
+                android:id="@+id/plusButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_shape"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:text="@string/plus"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/minusButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_shape"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:text="@string/minus"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/totalScorePlayer1"
                 android:layout_width="wrap_content"
@@ -181,6 +205,30 @@
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
                 android:autofillHints="" />
 
+            <Button
+                android:id="@+id/plusButton6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_shape"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:text="@string/plus"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/minusButton6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_shape"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:text="@string/minus"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/totalScorePlayer2"
                 android:layout_width="wrap_content"
@@ -221,6 +269,30 @@
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
                 android:autofillHints="" />
 
+            <Button
+                android:id="@+id/plusButton7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_shape"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:text="@string/plus"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/minusButton7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_shape"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:text="@string/minus"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/totalScorePlayer3"
                 android:layout_width="wrap_content"
@@ -260,6 +332,30 @@
                 app:fontFamily="@font/amaranth"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
                 android:autofillHints="" />
+
+            <Button
+                android:id="@+id/plusButton8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_shape"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:text="@string/plus"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/minusButton8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_shape"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:text="@string/minus"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/totalScorePlayer4"
